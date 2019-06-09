@@ -1,0 +1,27 @@
+{
+  "name": "authenticate",
+  "version": "1.0.0",
+  "description": "My astounding Nuxt.js project",
+  "author": "Afiif Imanto",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/bulma": "^1.2.1",
+    "@nuxtjs/font-awesome": "^1.0.4",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "font-awesome": "^4.7.0",
+    "nuxt": "^2.4.0",
+    "vue-sweetalert2": "^2.0.5"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "nodemon": "^1.18.9"
+  }
+}
