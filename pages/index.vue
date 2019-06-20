@@ -4,10 +4,10 @@
       <div class="field">
         <label class="label has-text-white login-label">LOGIN</label>
         <div class="control has-text-centered">
-          <input type="text" placeholder="Username" class="custom-input" v-model="usernameLogin"/>
+          <input type="text" :placeholder="usernamePlaceholder" class="custom-input" v-model="usernameLogin"/>
         </div>
         <div class="control has-text-centered">
-          <input type="password" placeholder="Password" v-model="passwordLogin" class="custom-input"/>
+          <input type="password" :placeholder="passwordPlaceholder" v-model="passwordLogin" class="custom-input"/>
         </div>
       </div>
       <a class="button is-rounded button-auth" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;" @click='register()'>Register</a>
@@ -25,7 +25,7 @@
           <input type="password" placeholder="Password" v-model="passwordRegister" class="custom-input"/>
         </div>
       </div>
-      <a class="button is-rounded button-auth" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">Register</a>
+      <a class="button is-rounded button-auth" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;" @click="registerAccount()">Register</a>
       <a class="button is-rounded button-auth" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;" >Cancel</a>
     </div>
   </section>
@@ -37,6 +37,8 @@
     data() {
       return {
         isActiveRegister: false,
+        usernamePlaceholder: 'Username',
+        passwordPlaceholder: 'Password',
         usernameLogin: '',
         passwordLogin: '',
         usernameRegister: '',
@@ -48,6 +50,9 @@
         this.isActiveRegister = true;
         this.usernameRegister = '';
         this.passwordRegister = '';
+      },
+      registerAccount() {
+        this.$axios.post('/tms/api/')
       },
       login() {
         this.isActiveRegister = false;
@@ -65,8 +70,14 @@
         .then(response => {
           console.log(response)
           if(response.data.data.length == 0) {
-            
+            this.$swal(
+              'Unable to login',
+              'Incorrect username or password',
+              'error'
+            )
+            return;
           }
+          this.$router.push('/live-auth');
         })
       }
     }
