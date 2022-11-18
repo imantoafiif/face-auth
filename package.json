@@ -17,7 +17,7 @@
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
     "font-awesome": "^4.7.0",
-    "nuxt": "^2.4.0",
+    "nuxt": "^2.15.8",
     "vue-carousel": "^0.18.0",
     "vue-sweetalert2": "^2.0.5"
   },
